@@ -25,7 +25,7 @@ def _bn_relu_conv(nb_filter, nb_row, nb_col, subsample=(1, 1), bn=False):
         if bn:
             input = BatchNormalization(mode=0, axis=1)(input)
         activation = Activation('relu')(input)
-        return Convolution2D(nb_filter=nb_filter, nb_row=nb_row, nb_col=nb_col, subsample=subsample, border_mode="same")(activation)
+        return Convolution2D(nb_filter=nb_filter, nb_row=nb_row, nb_col=nb_col, subsample=subsample, border_mode="same", dim_ordering='th')(activation)
     return f
 
 
@@ -66,14 +66,14 @@ def stresnet(c_conf=(3, 2, 32, 32), p_conf=(3, 2, 32, 32), t_conf=(3, 2, 32, 32)
             main_inputs.append(input)
             # Conv1
             conv1 = Convolution2D(
-                nb_filter=64, nb_row=3, nb_col=3, border_mode="same")(input)
+                nb_filter=64, nb_row=3, nb_col=3, border_mode="same", dim_ordering='th')(input)
             # [nb_residual_unit] Residual Units
             residual_output = ResUnits(_residual_unit, nb_filter=64,
                               repetations=nb_residual_unit)(conv1)
             # Conv2
             activation = Activation('relu')(residual_output)
             conv2 = Convolution2D(
-                nb_filter=nb_flow, nb_row=3, nb_col=3, border_mode="same")(activation)
+                nb_filter=nb_flow, nb_row=3, nb_col=3, border_mode="same", dim_ordering='th')(activation)
             outputs.append(conv2)
 
     # parameter-matrix-based fusion
