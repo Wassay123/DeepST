@@ -1,37 +1,28 @@
 DeepST
 ======
-[DeepST](https://github.com/lucktroy/DeepST): A **Deep Learning** Toolbox for Spatio-Temporal Data
-
-*Tested on `Windows Server 2012 R2`.*
+[DeepST](https://github.com/Wassay123/DeepST): A **Deep Learning** Toolbox for Spatio-Temporal Data
 
 ## Installation
 
 DeepST uses the following dependencies: 
 
 * [Keras](https://keras.io/#installation) and its dependencies are required to use DeepST. Please read [Keras Configuration](keras_configuration.md) for the configuration setting. 
-* [Theano](http://deeplearning.net/software/theano/install.html#install) or [TensorFlow](https://github.com/tensorflow/tensorflow#download-and-setup), but **Theano** is recommended. 
-* numpy and scipy
+* [TensorFlow](https://github.com/tensorflow/tensorflow#download-and-setup), used as the backend for Keras.
+* [numpy](https://numpy.org/install/) and [scipy](https://www.scipy.org/install.html)
 * HDF5 and [h5py](http://www.h5py.org/)
 * [pandas](http://pandas.pydata.org/)
-* CUDA 7.5 or latest version. And **cuDNN** is highly recommended. 
+* CUDA 7.5 or the latest version. And **cuDNN** is highly recommended.
 
-To install DeepST, `cd` to the **DeepST** folder and run the install command:
+## Running the Code
 
-```
-python setup.py install
-```
-
-To install the development version:
-
-```
-python setup.py develop
-```
+To run the experiments and models provided in this repository, use the `exptBikeNYC.ipynb` or corresponding `.py` files.
 
 ## Data path
 
 The default `DATAPATH` variable is `DATAPATH=[path_to_DeepST]/data`. You may set your `DATAPATH` variable using
 
-```
+
+```bash
 # Windows
 set DATAPATH=[path_to_your_data]
 
